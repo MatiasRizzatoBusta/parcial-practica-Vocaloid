@@ -86,6 +86,7 @@ conoce(megurineLuka,hatsuneMiku).
 conoce(megurineLuka,gumi).
 conoce(gumi,seeU).
 conoce(seeU,kaito).
+% que pasa si no conoce a nadie?
 
 esElUnicoQueParticipa(Vocaloid,Concierto):- %caso base.Entra por conocido directo.Falta hatsuneMiku en vocalektVisions.
     conoce(Vocaloid,OtroVocaloid),
