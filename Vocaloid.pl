@@ -88,7 +88,7 @@ conoce(gumi,seeU).
 conoce(seeU,kaito).
 % que pasa si no conoce a nadie?
 
-esElUnicoQueParticipa(Vocaloid,Concierto):-
+esElUnicoQueParticipa(Vocaloid,Concierto):- % caso en el que no conozca a nadie
     vocaloid(Vocaloid,_),
     puedeParticipar(Vocaloid,Concierto),
     not(conoce(Vocaloid,_)).
