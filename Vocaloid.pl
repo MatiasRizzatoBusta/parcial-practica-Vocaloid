@@ -88,6 +88,11 @@ conoce(gumi,seeU).
 conoce(seeU,kaito).
 % que pasa si no conoce a nadie?
 
+esElUnicoQueParticipa(Vocaloid,Concierto):-
+    vocaloid(Vocaloid,_),
+    puedeParticipar(Vocaloid,Concierto),
+    not(conoce(Vocaloid,_)).
+
 esElUnicoQueParticipa(Vocaloid,Concierto):- %caso base.Entra por conocido directo.Falta hatsuneMiku en vocalektVisions.
     conoce(Vocaloid,OtroVocaloid),
     puedeParticipar(Vocaloid,Concierto),
