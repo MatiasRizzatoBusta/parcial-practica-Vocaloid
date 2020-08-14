@@ -87,17 +87,19 @@ conoce(megurineLuka,gumi).
 conoce(gumi,seeU).
 conoce(seeU,kaito).
 
-esElUnicoQueParticipa(Vocaloid,Concierto):- %caso base
-    vocaloid(Vocaloid,_),
-    puedeParticipar(Vocaloid,Concierto).
+esElUnicoQueParticipa(Vocaloid,Concierto):- %caso base.Entra por conocido directo.Falta hatsuneMiku en vocalektVisions.
+    conoce(Vocaloid,OtroVocaloid),
+    puedeParticipar(Vocaloid,Concierto),
+    not(puedeParticipar(OtroVocaloid,Concierto)).
 
 esElUnicoQueParticipa(Vocaloid,Concierto):-
     conoce(Vocaloid,Conocido),
     puedeParticipar(Vocaloid,Concierto),
     not(puedeParticipar(Conocido,Concierto)),
     esElUnicoQueParticipa(Conocido,Concierto).
-
-/*si tenemos que agregar mas tipos de conciertos solo tenemos que agregar dico concierto y agregar una funcion de 
+/*
+si tenemos que agregar mas tipos de conciertos solo tenemos que agregar dico concierto y agregar una funcion de 
 cumpleCriterioConcierto que se fije si el vocaloid cumple los criteriso de dicho concierto.
 El concepto que permite esto es el polimorfismo ya que nos permite tratar de forma diferente cada tipo de concierto.\
 */
+
