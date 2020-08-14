@@ -1,3 +1,4 @@
+
 %vocaloid(nombre,cancion(cancionQueSabe,MinutosQueDura)) %uso functores para practicarlos
 vocaloid(megurineLuka,cancion(nightFever,4)).
 vocaloid(megurineLuka,cancion(foreverYoung,5)).
@@ -25,8 +26,12 @@ sumaDuracionTemas(Vocaloid,DuracionTotal):-
     sumlist(ListaDuracionesTemasSabidos, DuracionTotal).
     
 esAcelerado(Vocaloid):- %no usar forall
-    vocaloid(Vocaloid,cancion(_,Duracion)),
-    not(Duracion > 4).
-    
+vocaloid(Vocaloid,_),% esto lo pongo para ligar a una variable para el not.El not trabaja con variables ya ligadas
+not((vocaloid(Vocaloid,cancion(_,Duracion)),Duracion < 4)).% que ningun tema dure mas de 4 minutos.
 
+/* no hago vocaloid(Vocaloid,cancion(_,Duracion)), not(Duracion > 4)
+*/
 
+%vocaloid(Vocaloid,_),
+%forall(vocaloid(Vocaloid,cancion(_,Duracion)),Duracion =< 4).
+   
