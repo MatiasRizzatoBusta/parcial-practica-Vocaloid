@@ -87,6 +87,10 @@ conoce(megurineLuka,gumi).
 conoce(gumi,seeU).
 conoce(seeU,kaito).
 
+esElUnicoQueParticipa(Vocaloid,Concierto):- %caso base
+    vocaloid(Vocaloid,_),
+    puedeParticipar(Vocaloid,Concierto).
+
 esElUnicoQueParticipa(Vocaloid,Concierto):-
     conoce(Vocaloid,Conocido),
     puedeParticipar(Vocaloid,Concierto),
